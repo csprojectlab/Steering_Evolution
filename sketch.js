@@ -13,6 +13,13 @@ function mouseDragged() {
     population.push(new Vehicle(mouseX, mouseY));
 }
 
+// If debug key is pressed
+function keyPressed() {
+    if (key == 'r' || key == 'R') {
+        debug.checked(!debug.checked())
+    }
+}
+
 function setup () {
     let canvas = createCanvas(canvasWidth, canvasHeight);
     canvas.parent('canvascontainer')
