@@ -30,10 +30,10 @@ function setup () {
 function draw () {
     background(10);
     // 10% chance of new food.
-    if (random(1) < 0.1)
+    if (random(1) < 0.15)
         food.push(createVector(random(width), random(height)));
     // 1% chance of new poison.
-    if (random(1) < 0.01)
+    if (random(1) < 0.05)
         poison.push(createVector(random(width), random(height)));
 
     // Go Through all the vehicles.
