@@ -128,7 +128,8 @@ class Vehicle {
             noFill();
 
             // Circle the line for food.
-            stroke(0, 255, 0, 100);
+            let granularity = floor(map(this.dna[0], -3, 3, 0, 255))
+            stroke(0, granularity, 0);
             ellipse(0, 0, this.dna[2] * 2);
             line(0, 0, 0, -this.dna[0] * 25);
             // Circle the line of poison.
