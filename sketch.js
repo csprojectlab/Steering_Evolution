@@ -14,6 +14,8 @@ const SPAWN_BORDER = 30;
 const FOOD_COUNT = 200;
 const POISON_COUNT = 100;
 
+let counter = 0;
+
 // Add Vehicle by dragging mouse.
 function mouseDragged() {
     population.push(new Vehicle(mouseX, mouseY));
@@ -37,10 +39,11 @@ function setup () {
     for (let i = 0; i < FOOD_COUNT; i++) 
         food[i] = createVector(random(width), random(height))
     for (let i = 0; i < POISON_COUNT; i++)
-        poison[i] = createVector(random(width), random(height));
+        poison[i] = createVector(random(width), random(height));    
 }
 
 function draw () {
+    counter++;          // To calculate running averages.
     background(0);
     if (food.length < FOOD_COUNT) 
         food.push(createVector(random(width), random(height)))
