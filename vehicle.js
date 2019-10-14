@@ -134,7 +134,8 @@ class Vehicle {
             line(0, 0, 0, -this.dna[0] * 25);
             // Circle the line of poison.
             granularity = floor (map (this.dna[1], -3, 3, 0, 255))
-            stroke(0, 0, granularity);
+            // stroke(0, 0, granularity);
+            stroke(granularity, 0, 0);
             ellipse(0, 0, this.dna[3] * 2);
             line(0, 0, 0, -this.dna[1] * 25);
 
