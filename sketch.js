@@ -51,9 +51,12 @@ function setup () {
 function draw () {
     counter++;          // To calculate running averages.
     if (counter % GRAPH_GRANULARITY == 0) {
-        // Store the current reading
+        // Store the current readings
         birthCount.push(births);
         births = 0;     // For next granular cycle        
+        deathCount.push(deaths);
+        deaths = 0;
+        console.log(birthCount, deathCount)
     }
     background(0);
     if (food.length < FOOD_COUNT) 
