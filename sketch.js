@@ -9,9 +9,9 @@ let canvasWidth = 1950;
 let canvasHeight = 800;
 
 // Population count
-const TOTAL_ORGANISMS = 100
+const TOTAL_ORGANISMS = 50
 const SPAWN_BORDER = 30;
-const FOOD_COUNT = 200;
+const FOOD_COUNT = 80;
 const POISON_COUNT = 100;
 
 let counter = 0;
@@ -32,8 +32,13 @@ function mouseDragged() {
 function keyPressed() {
     if (key == 'r' || key == 'R') {
         debug.checked(!debug.checked())
+    } else if (key == 's' || key == 'S') {
+        saveJSON(birthCount, 'birthCount.json')
+        saveJSON(deathCount, "deathCount.json");
+        saveJSON(populationCount, "populationCount.json");
     }
 }
+
 
 function setup () {
     let canvas = createCanvas(canvasWidth, canvasHeight);
