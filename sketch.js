@@ -11,6 +11,8 @@ let canvasHeight = 800;
 // Population count
 const TOTAL_ORGANISMS = 100
 const SPAWN_BORDER = 30;
+const FOOD_COUNT = 200;
+const POISON_COUNT = 100;
 
 // Add Vehicle by dragging mouse.
 function mouseDragged() {
@@ -32,20 +34,18 @@ function setup () {
     // angleMode(RADIANS);
     for (let i = 0; i < TOTAL_ORGANISMS; i++)
         population[i] = new Vehicle(floor(random(SPAWN_BORDER, width)), floor(random(SPAWN_BORDER, height)));
-    for (let i = 0; i < 10; i++) 
+    for (let i = 0; i < FOOD_COUNT; i++) 
         food[i] = createVector(random(width), random(height))
-    for (let i = 0; i < 5; i++)
+    for (let i = 0; i < POISON_COUNT; i++)
         poison[i] = createVector(random(width), random(height));
 }
 
 function draw () {
     background(0);
-    // 10% chance of new food.
-    if (random(1) < 0.35)
-        food.push(createVector(random(SPAWN_BORDER, width), random(SPAWN_BORDER, height)));
-    // 1% chance of new poison.
-    if (random(1) < 0.15)
-        poison.push(createVector(random(width), random(height)));
+    if (food.length < FOOD_COUNT) 
+        food.push(createVector(random(width), random(height)))
+    if (poison.length < POISON_COUNT)
+        poison.push(createVector(random(width), random(height)))
 
     // Go Through all the vehicles.
     for (let i = population.length - 1; i >= 0; i--) {
