@@ -19,7 +19,9 @@ let counter = 0;
 // For taking graph readings
 const GRAPH_GRANULARITY = 1000;         // Take birth reading every 1000 cycles or frames
 let births = 0;     // Store the birth rate per granular cycles
+let deaths = 0;
 let birthCount = [];            // Store births every granular cycles
+let deathCount = [];            // Store the deaths every granular cycles
 // Add Vehicle by dragging mouse.
 function mouseDragged() {
     population.push(new Vehicle(mouseX, mouseY));
@@ -76,11 +78,14 @@ function draw () {
         // If vehicle has died.
         if (v.dead()) {
             population.splice(i, 1);
+            deaths++;
         } else {
             // Every vehicle has a chance of cloning itself.
             let child = v.birth();
-            if (child != null)
+            if (child != null) {
+                births++;
                 population.push(child);
+            }
         }
     }
 
