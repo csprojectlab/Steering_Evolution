@@ -58,7 +58,7 @@ function draw () {
         deathCount.push(deaths);
         deaths = 0;
         populationCount.push(population.length);
-        console.log(birthCount, deathCount)
+        console.log(birthCount, deathCount, populationCount)
     }
     background(0);
     if (food.length < FOOD_COUNT) 
