@@ -5,7 +5,7 @@ let nutrition = [0.1, -1];
 let debug;   // Additional information.
 
 // Canvas variables
-let canvasWidth = 1460;
+let canvasWidth = 800;
 let canvasHeight = 600;
 
 // Add Vehicle by dragging mouse.
@@ -35,9 +35,9 @@ function setup () {
 }
 
 function draw () {
-    background(10);
+    background(255);
     // 10% chance of new food.
-    if (random(1) < 0.15)
+    if (random(1) < 0.05)
         food.push(createVector(random(width), random(height)));
     // 1% chance of new poison.
     if (random(1) < 0.05)
@@ -47,9 +47,9 @@ function draw () {
     for (let i = population.length - 1; i >= 0; i--) {
         let v = population[i];
         // Eat the food. (index 0)
+        v.eat(poison, 1);
         v.eat(food, 0);
         // Eat the poision (index 1)
-        v.eat(poison, 1);
         // Check the boundaries
         v.boundaries();
 
