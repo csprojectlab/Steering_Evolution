@@ -55,6 +55,7 @@ class Vehicle {
     birth () {
         let r = random(1);
         if (r < 0.001) {
+            births++;
             return new Vehicle(this.position.x, this.position.y, this.dna);
         }
     }

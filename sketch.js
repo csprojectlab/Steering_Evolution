@@ -16,6 +16,10 @@ const POISON_COUNT = 100;
 
 let counter = 0;
 
+// For taking graph readings
+const GRAPH_GRANULARITY = 1000;         // Take birth reading every 1000 cycles or frames
+let births = 0;     // Store the birth rate per granular cycles
+let birthCount = [];            // Store births every granular cycles
 // Add Vehicle by dragging mouse.
 function mouseDragged() {
     population.push(new Vehicle(mouseX, mouseY));
@@ -44,6 +48,11 @@ function setup () {
 
 function draw () {
     counter++;          // To calculate running averages.
+    if (counter % GRAPH_GRANULARITY == 0) {
+        // Store the current reading
+        birthCount.push(births);
+        births = 0;     // For next granular cycle        
+    }
     background(0);
     if (food.length < FOOD_COUNT) 
         food.push(createVector(random(width), random(height)))
