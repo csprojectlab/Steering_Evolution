@@ -22,6 +22,7 @@ let births = 0;     // Store the birth rate per granular cycles
 let deaths = 0;
 let birthCount = [];            // Store births every granular cycles
 let deathCount = [];            // Store the deaths every granular cycles
+let populationCount = [];           // Store the organisms count every granular cycles
 // Add Vehicle by dragging mouse.
 function mouseDragged() {
     population.push(new Vehicle(mouseX, mouseY));
@@ -56,6 +57,7 @@ function draw () {
         births = 0;     // For next granular cycle        
         deathCount.push(deaths);
         deaths = 0;
+        populationCount.push(population.length);
         console.log(birthCount, deathCount)
     }
     background(0);
