@@ -8,6 +8,9 @@ let debug;   // Additional information.
 let canvasWidth = 800;
 let canvasHeight = 600;
 
+// Population count
+const TOTAL_ORGANISMS = 100
+
 // Add Vehicle by dragging mouse.
 function mouseDragged() {
     population.push(new Vehicle(mouseX, mouseY));
@@ -26,8 +29,8 @@ function setup () {
     debug = select("#debug");
 
     // angleMode(RADIANS);
-    for (let i = 0; i < 10; i++)
-        population[i] = new Vehicle(width / 2, height / 2);
+    for (let i = 0; i < TOTAL_ORGANISMS; i++)
+        population[i] = new Vehicle(floor(random(30, width)), floor(random(30, height)));
     for (let i = 0; i < 10; i++) 
         food[i] = createVector(random(width), random(height))
     for (let i = 0; i < 5; i++)
