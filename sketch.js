@@ -9,9 +9,9 @@ let canvasWidth = 1950;
 let canvasHeight = 800;
 
 // Population count
-const TOTAL_ORGANISMS = 50
+const TOTAL_ORGANISMS = 100
 const SPAWN_BORDER = 30;
-const FOOD_COUNT = 80;
+const FOOD_COUNT = 150;
 const POISON_COUNT = 100;
 
 let counter = 0;
